@@ -1,61 +1,63 @@
 <!doctype html>
 
-<title>00 Object Elements - React From Zero</title>
+<title>00 Objectos y Elementos - React Desde Cero</title>
 
 <script src="https://unpkg.com/react@16.4.0/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@16.4.0/umd/react-dom.development.js"></script>
 
 <div id="app">
-  <!--The render target of our React application-->
+  <!-- Aquí se renderizará nuestra  aplicación de React -->
 </div>
 
 <script>
-  // React uses ES2015 Symbols to "tag" its element-objects.
+  // React utiliza símbolos de ES2015 (también conocido como ES6) para identificar los elementos y objetos..
   // It uses a magic number as fallback on older browsers.
   var magicValue = (Symbol && Symbol.for("react.element")) || 0xeac7
 
-  // React uses virtual DOM elements, which become real DOM elements on a render.
-  // A virtual DOM element can be defined as a simple object literal.
-  // Normally you would use the React.createElement() to create an element.
-  // This is what the return value of a React.createElement() call could look like.
+  // React utiliza internamente los elementos en el Virtual DOM (VDOM), los cuales pasan al DOM real a la hora de renderizar.
+  // Un elemento del VDOM puede sstar definido como un objeto literal simple.
+  // Normalmente tu usarias React.createElement() para crear un elmento.
+  // Así es como se vería el valor retornado por la llamada a React.createElement()
   var reactElement = {
 
-    // This special property will be checked by React to ensure this object
-    // is a React element and not just some user data
-    // React.createElement() sets it for you
+    // Esta propiedad especial es comprobada por React para identificar que
+    // este objeto es un elemento de React y no simplemente algún dato del usuario.
+    // React.createElement() lo asigna automáticamente por ti
     $$typeof: magicValue,
 
-    // This will also be checked by React. We will be talking about references
+    // Este valor también será comprobado por React.
     // later, but if you're not using them, this has to be set to null and not
-    // undefined
+    // Más adelante hablaremos sobre referencias.
+    // Pero si no utilizamos referencias, entonces ref debe ser `null` y no `undefined`
     ref: null,
 
-    // This defines the HTML-tag
+    // Esto define la etiqueta HTML
     type: "h1",
 
-    // This defines the properties that get passed down into the element
+    // Esto define las propiedades que son recibidas por el elemento
     props: {
 
-      // In this example there is just a single text node as child
+      // En este ejemplo hay solo una línea de texto como nodo hijo.
       children: "Hello, world!",
 
-      // a CSS class
+      // una clase CSS
       className: "abc",
 
-      // styles can be passed as object literals
-      // React uses camelCase instead of dashed-case (like CSS/D3 do)
+      // los estilos pueden ser pasadas como objetos
+      // React utiliza camelCase en vez de dashed-case (igual que hace CSS/D3)
       style: {
         textAlign: "center",
       },
 
-      // event handlers can be added as properties, too
-      // React uses synthetic events, which basically try to normalize browser behaviour
+      // Los manejadores de eventos, pueden ser añadidos como propiedades.
+      // React utiliza eventos sintéticos, los cuales básicamente
+      // intentan normalizar el comportamiento del navegador.
       onClick: function (notYourRegularEvent) { alert("click") },
     },
 
   }
 
-  // another element that doesn"t have much configuration
+  // otro elemento de ejemplo, sin tanta configuración
   var anotherElement = {
     $$typeof: magicValue,
     ref: null,
@@ -65,9 +67,9 @@
     },
   }
 
-  // React needs a DOM element as render target
+  // React necesita un elemento del DOM como objetivo de renderizarse.
   var renderTarget = document.getElementById("app")
 
-  // ReactDOM is responsible for inserting the element into the DOM
+  // ReactDOM es el responsable de insertar el elmento en el DOM
   ReactDOM.render(reactElement, renderTarget)
 </script>
