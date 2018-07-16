@@ -1,6 +1,6 @@
 # React desde Zero
 
-Una guía simple de React (99% ES2015 less)
+Una guía simple de React (99% sin ES2015/ES6)
 
 Todo se ejecuta en el navegador sin ninguna pre-compilación manual.
 
