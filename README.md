@@ -1,4 +1,4 @@
-# React desde Zero
+# React desde Cero
 
 Una guía simple de React (99% sin ES2015/ES6)
 
