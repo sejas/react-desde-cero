@@ -3,6 +3,7 @@
 Una guía simple de React (99% sin ES2015/ES6)
 
 Todo se ejecuta en el navegador sin ninguna pre-compilación manual.
+Sin utilizar Webpack.
 
 ## Crear la App de React
 
@@ -73,3 +74,21 @@ Si quieres ejecutar los ejemplos con [create-react-app](https://github.com/faceb
 
 [Lección 17 - Tests Unitarios](https://github.com/sejas/react-desde-cero/blob/master/17-unit-testing.html) -
 [Vista previa](https://cdn.rawgit.com/sejas/react-desde-cero/master/17-unit-testing.html)
+
+
+# Colaboradores
+[![](https://avatars0.githubusercontent.com/u/6407677?s=60&v=4)](https://github.com/kay-is)
+[![](https://avatars2.githubusercontent.com/u/779993?s=60&v=4)](https://github.es)
+[![](https://avatars3.githubusercontent.com/u/4408379?s=60&v=4)](https://github.com/lex111)
+[![](https://avatars2.githubusercontent.com/u/9661806?s=60&v=4)](https://github.com/nem035)
+[![](https://avatars2.githubusercontent.com/u/468153?s=60&v=4)](https://github.com/jordanbtucker)
+[![](https://avatars1.githubusercontent.com/u/940439?s=60&v=4)](https://github.com/BrianODell)
+[![](https://avatars3.githubusercontent.com/u/26270612?s=60&v=4)](https://github.com/alexpanchuk)
+[![](https://avatars3.githubusercontent.com/u/909696?s=60&v=4)](https://github.com/jamiemccrindle)
+[![](https://avatars3.githubusercontent.com/u/780408?s=60&v=4)](https://github.com/rtsao)
+[![](https://avatars2.githubusercontent.com/u/9947422?s=60&v=4)](https://github.com/TejasQ)
+[![](https://avatars1.githubusercontent.com/u/456176?s=60&v=4)](https://github.com/durkode)
+
+
+# Licencia
+[GNU GENERAL PUBLIC LICENSE](LICENSE)
