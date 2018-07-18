@@ -76,7 +76,7 @@ Si quieres ejecutar los ejemplos con [create-react-app](https://github.com/faceb
 [Vista previa](https://cdn.rawgit.com/sejas/react-desde-cero/master/17-unit-testing.html)
 
 
-# Colaboradores
+## Colaboradores
 [![](https://avatars0.githubusercontent.com/u/6407677?s=60&v=4)](https://github.com/kay-is)
 [![](https://avatars2.githubusercontent.com/u/779993?s=60&v=4)](https://github.es)
 [![](https://avatars3.githubusercontent.com/u/4408379?s=60&v=4)](https://github.com/lex111)
@@ -90,5 +90,5 @@ Si quieres ejecutar los ejemplos con [create-react-app](https://github.com/faceb
 [![](https://avatars1.githubusercontent.com/u/456176?s=60&v=4)](https://github.com/durkode)
 
 
-# Licencia
+## Licencia
 [GNU GENERAL PUBLIC LICENSE](LICENSE)
