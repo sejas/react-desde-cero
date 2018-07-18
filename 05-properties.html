@@ -1,6 +1,6 @@
 <!doctype html>
 
-<title>05 Properties - React From Zero</title>
+<title>05 Propiedades - React Desde Cero</title>
 
 <script src="https://unpkg.com/react@16.4.0/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@16.4.0/umd/react-dom.development.js"></script>
@@ -9,7 +9,7 @@
 <div id="app"></div>
 
 <script type="text/babel">
-// Components, like elements, can use properties, too
+// Los componentes, del mismo modo que los elementos, pueden usar propiedades (props)
 function MyComponent(props) {
   return (
     <div className={props.className}>
@@ -21,21 +21,30 @@ function MyComponent(props) {
 
 var reactElement = <MyComponent className="abc" customData="world"/>
 
-// Which also works with an object and the spread (...) operator
+// Estas propiedades funcionan como un Objeto 
 var props = {
   className: "abc",
   customData: "world",
 }
-
+// y se pueden deconstruor con el operador `...`
 reactElement = <MyComponent {...props}/>
 
-// This allows components with dynamic content
-var planets = ["earth", "mars", "venus"]
+// Esto permite a los componentes trabajar de forma dinámica
+var planets = ["Tierra", "Marte", "Venus"]
 
-// If an array is used as a "child node" each child needs a unique key-property
+// Si cada array es utilizado como un "nodo hijo", cada hijo necesita
+// un `key` único.
+// Aquí vemos el ejemplo del map, y como convierte cada planeta en un
+// componente "diferente".
 var elements = planets.map(function(planet, index) {
   return <MyComponent className="myClass" customData={planet} key={index}/>
 })
+// El map devolvería un array de componentes:
+// [
+//  <MyComponent className="myClass" customData={"Tierra"} key={0}/>,
+//  <MyComponent className="myClass" customData={"Marte"} key={1}/>,
+//  <MyComponent className="myClass" customData={"Venus"} key={2}/>
+// ]
 
 reactElement = <div>{elements}</div>
 
