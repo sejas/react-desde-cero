@@ -1,6 +1,6 @@
 <!doctype html>
 
-<title>04 Components - React From Zero</title>
+<title>04 Componentes - React Desdce Cero</title>
 
 <script src="https://unpkg.com/react@16.4.0/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@16.4.0/umd/react-dom.development.js"></script>
@@ -9,11 +9,12 @@
 <div id="app"></div>
 
 <script type="text/babel">
-// The main selling point of React is its component system
-// components are used to encapsulate elements and their behaviour
-// see them as a mix of controller and view of MVC
+// El punto disruptor de React is su sistema de componentes
+// Los componentes encapsulan elementos y sus comportamientos
+// Puedes verlos como una mezcla de Vista y Controlador del patrón MVC.
 
 // Here we use stand alone elements and some data
+// En este ejemplo usamos Elementos independientes y algún dato
 var data = "world"
 var reactElement =
   <div>
@@ -21,9 +22,11 @@ var reactElement =
     <h2>{data}</h2>
   </div>
 
-// Here the elements are encapsuled in a simple component function
+// Aquí encapsulamos a los elementos anterioes en una función componente
 // They have to start with a capital letter and
-// return exactly ONE root element with or without nested elements (before React 16)
+// Deben empezar por una letra Mayúsculas
+// y devuelve UN único elemento raiz con o sin elementos anidados (antes de React 16)
+// en este ejemplo, el componente Raíz es `div`.
 function MyComponent() {
   var data = "world"
   return (
@@ -34,11 +37,12 @@ function MyComponent() {
   )
 }
 
-// Since React 16.0.0, components can return an array of elements as well
-// In doing so, no additional wrapper element is created
-// One caveat is that, similarly to what we do when rendering an array,
-// we have to add a unique key to each element in the array, also don't forget the commas
-// (we'll see more on this in the next lesson)
+// Desde la versión 16.0.0 de React,
+// los componentes también pueden devolver un array de elementos.
+// Al hacer esto, no es necesario un elmento raíz, y tampoco será creado automáticamente.
+// Hay que tener cuidado y no podemos olvidar incluir la prop `key`
+// como identificador único tampoco podemos olvidarnos de la coma
+// (Veremos más en la siguiente lección)
 function MyComponent() {
   var data = "world"
   return [
@@ -47,9 +51,11 @@ function MyComponent() {
   ]
 }
 
-// Since React 16.2.0, we can use special "wrapper" components called fragments
-// that behave the same (no extra wrapper element created)
-// but remove the need to explicitly set keys (fragments do this under the hood) and commas
+// Desde la versión 16.2.0 de React, podemos usar componentes especiales llamados fragments
+// los utilizaremos como componentes raíz que no generan ningún elemento en el rederizado
+// funciona del mismo modo que si devolviéramos un array,
+// pero eliminan la necesidad de incluir `keys` para cada elemento hijo
+// tampoco necesitamos el uso de comas.
 function MyComponent() {
   var data = "world"
   return (
@@ -60,16 +66,17 @@ function MyComponent() {
   )
 }
 
-// a component function can be used like an element
+// Una función componente puede ser utilizada como un elemento.
 reactElement = <MyComponent/>
 
-// this translates to a React.createElement() call
-// the null indicates that no properties have been set
+// Esto se traduce a una llamada a React.createElement()
+// el null indica que no tiene ninguna propiedad.
 reactElement = React.createElement(MyComponent, null)
 
 //  for reference a react-internal <div> tag
+//  como ejemplo aquí vemos un componente con un elemento <div>
 var anotherElement = <div/>
-// gets converted to
+// que se convierte en
 anotherElement = React.createElement("div", null)
 
 var renderTarget = document.getElementById("app")
