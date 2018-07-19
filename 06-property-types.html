@@ -1,22 +1,22 @@
 <!doctype html>
 
-<title>06 Property Types - React From Zero</title>
+<title>06 Tipos de propiedad - React Desde Cero</title>
 
 <script src="https://unpkg.com/react@16.4.0/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@16.4.0/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <script src="https://unpkg.com/prop-types@15.6.1/prop-types.js">
-// PropTypes were removed from React 16 and are now their own package
+// PropTypes fue extraído del core de React 16
+// por eso necesitamos añadir la librería de forma independiente.
 </script>
 
 <div id="app"></div>
 
 <script type="text/babel">
-// Components get created to encapsulate stuff that should be together in one
-// place and for reuse.
-// Reuse requires the user of the component to supply the correct properties so
-// we can define a type of each property and set defaults
+// Los componentes encapsulan contenido que debe estar en un mismo sitio y se pueda reutilizar.
+// Utilizando PropTypes, podemos definir el tipo de cada propiedad que recibe el componente
+// e incluso podemos definir valores por defecto
 
 function MyComponent(props) {
   return (
@@ -27,24 +27,24 @@ function MyComponent(props) {
   )
 }
 
-// Add the propTypes (function-)property to the component function
-// to let it validate its (element-)properties
+// Añade el atributo propTypes al componente, para validar el tipo de
+// cada propiedad que recibe el componente.
 MyComponent.propTypes = {
-  // React supplies us with a bunch of types, like string
+  // Dentro de PropTypes tenemos la definicón de los tipos básicos. Como por ejemplo string.
   customData: PropTypes.string,
 }
 
-// Add defaultProps (function-)property to set the defaults
-// if nothing was provided by the user
+// en defaultProps podemos definir el valor por defecto,
+// en el caso de que se pase esa propiedad al componente
 MyComponent.defaultProps = {
   customData: "default",
   className: "default-class",
 }
 
-// This will show a warning in the console, because customData should be a string
+// Este ejemplo enseñará una advertencia en la consola, porque customData debería ser de tipo string.
 var reactElement = <MyComponent customData={123}/>
 
-// This will use the defaults
+// En este ejemplo se usaría el valor por defecto para la propiedad customData "default"
 reactElement = <MyComponent/>
 
 var renderTarget = document.getElementById("app")
