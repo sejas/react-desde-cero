@@ -1,33 +1,37 @@
 <!doctype html>
 
-<title>08 Nested Components - React From Zero</title>
+<title>08 Componentes Anidados - React Desde Cero</title>
 
 <script src="https://unpkg.com/react@16.4.0/umd/react.development.js"></script>
+<script src="https://unpkg.com/react@16.4.0/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@16.4.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.4.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <div id="app"></div>
 
 <script type="text/babel">
-// Components, like elements, can be nested
-// for this, the children property is used inside the component
+// Los Componentes, del mismo modo que los elementos, pueden ser anidados
+// Para ello, solo basta con utilizar la propiedad children dentro del componente.
 
-// This component just wraps its children in an <li> element
+// Este componente simplemente envuelve a sus descendientes en un elemento <li />
 function Item(props) {
   return <li>{props.children}</li>
 }
 
-// This component wraps its children into an <ul> element
+// Este componente envuelve a sus descendientes en un elemento <ul />
 function List(props) {
   return <ul>{props.children}</ul>
 }
 
-// If the <List> is created without children it gets a default child
+// Si <List /> is invocado sin la propiedad children, entonces asigna
+// por defecto el elemento <Item> que vemos a continuación.
 List.defaultProps = {
   children: <Item>Empty</Item>
 }
 
-// now we render two <List>s, without and with Items
+// Ahora renderizamos dos Listas <List />, una con descendientes y otra sin.
 var reactElement =
   <div>
     <List/>
