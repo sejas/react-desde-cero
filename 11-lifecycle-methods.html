@@ -1,6 +1,6 @@
 <!doctype html>
 
-<title>11 Lifecycle Methods - React From Zero</title>
+<title>11 Ciclo de vida y sus métodos - React desde Cero</title>
 
 <script src="https://unpkg.com/react@16.4.0/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@16.4.0/umd/react-dom.development.js"></script>
@@ -10,47 +10,49 @@
 <div id="app"></div>
 
 <script type="text/babel">
-// If we use component classes, our components inherit
-// a bunch of methods, which get called by React at specific
-// times to allow us to get more control over our components
-// a few of them we already met in lesson 9
-// Here are a few new ones. Not all of them, but the most important ones
+// Si usamos un componente clase, nuestros componentes heredan
+// muchos métodos, que son llamados por React en momentos específicos
+// para permitirnos tener más control sobre nuestros componentes
+// Algunos de estos métodos ya los conocimos en la lección 9
+// Aquí se presentan otros nuevos. No se presentan todos, solamente los más relevantes
 
 var TRANSLATION_FROM_SOMEWHERE = "Text from a synchronous source."
 
 var MyComponent = createReactClass({
-  // This method is for default prop values
-  // it gets called before the props are given to our component
-  // the "real" props override them if there are any
+  // Este método es para los valores por defecto de las propiedades
+  // Es llamado antes de que las propiedades sean pasadas a nuestro componente
+  // Las propiedads "reales", si es que existen, tienen precedencia sobre estos valores
   getDefaultProps: function() {
     return {
-      iGetOverriden: "default",
-      iStayAsIAm: "default",
+      propiedadRecibida: "valor por defecto",
+      propiedadPorDefecto: "valor por defecto",
     }
   },
 
-  // This method is called before a component got mounted to the DOM
-  // it returns values that are used for this.state
+  // Este método es llamado antes de que el componente sea montado al DOM
+  // Retorna valores que son usados para this.state
   getInitialState: function() {
     return {serverData: null}
   },
 
-  // This method gets called right before the component is mounted
-  // can be used to initialize some synchronous configuration, that should
-  // be available before the component renders
+  // Este método es llamado justo antes de que el componente sea montado
+  // Puede ser utilizado para inicializar alguna configuración de forma síncrona, 
+  // que deba estar disponible antes del render del componente
   componentWillMount: function() {
     this.TEXT = TRANSLATION_FROM_SOMEWHERE
   },
 
-  // This method will be called right after the component got mounted
-  // it's a good place to start some asynchronous tasks.
-  // For example on the first mount it shows a loading message
-  // then componentDidMount is called and gets some server data.
+  // Este método será llamado inmediatamente después del montado
+  // del componente
+  // Es un buen lugar para realizar tareas asíncronas
+  // En el primer montado de este componente de ejemplo, se muestra 
+  // un mensaje de loading, luego componentDidMount es llamado para obtener
+  // datos del servidor
   componentDidMount: function() {
 
     var component = this
 
-    // We clean up the data and get new from somewhere
+    // Limpiamos los datos y obtenemos nuevos de algún lugar
     function loadData() {
 
       component.setState({serverData: null})
@@ -61,28 +63,30 @@ var MyComponent = createReactClass({
 
     }
 
-    // Initial data load
+    // Carga inicial de datos
     loadData()
 
-    // We simulate a server request every 4 seconds
+    // Simulamos una peticición al servidor cada 4 segundos
     this.updateInterval = setInterval(loadData, 4000)
 
   },
 
-  // This method will be called before the component gets removed from the DOM
-  // a bit like a destructor. Here we can do some cleanup.
+  // Este método será llamado antes de que el componente sea eliminado del DOM
+  // Es como un destructor. Aquí podemos realizar alguna limpieza adicional
   componentWillUnmount: function() {
 
     clearInterval(this.updateInterval)
 
   },
 
-  // This method is called before a render when new props or state is available
-  // it won"t be called on the first render or if this.forceUpdate() is used
-  // it can be used if some state or prop changes don"t require a rerender
+  // Este método es llamado antes del render cuando se reciben nuevas propiedades
+  // o se modifica el estado
+  // No será llamado en el primer render o si se utiliza this.forceUpdate()
+  // Puede ser utilizado si no se requiere de un nuevo render para algún valor de
+  // estado o de propiedad 
   shouldComponentUpdate: function(nextProps, nextState) {
 
-    // we want to render on every change, this is the default behaviour
+    // Queremos hacer render en cada cambio, este es el comportamiento por defecto
     return true
 
   },
@@ -91,9 +95,9 @@ var MyComponent = createReactClass({
     return (
       <h2 style={{width: 400, margin: "auto"}}>
 
-        Overriden Prop: {this.props.iGetOverriden}<br/><br/>
+        Propiedad recibida: {this.props.propiedadRecibida}<br/><br/>
 
-        Default Prop: {this.props.iStayAsIAm}<br/><br/>
+        Propiedad con valor por defecto: {this.props.propiedadPorDefecto}<br/><br/>
 
         {this.TEXT}<br/><br/>
 
@@ -108,8 +112,8 @@ var MyComponent = createReactClass({
 })
 
 function getServerData(fn) {
-  setTimeout(function() { fn("Data Loaded!") }, 700)
+  setTimeout(function() { fn("Datos cargados!") }, 700)
 }
 
-ReactDOM.render(<MyComponent iGetOverriden={"override"}/>, document.getElementById("app"))
+ReactDOM.render(<MyComponent propiedadRecibida={"valor recibido"}/>, document.getElementById("app"))
 </script>
