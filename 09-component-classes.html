@@ -1,6 +1,6 @@
 <!doctype html>
 
-<title>09 Component Classes - React From Zero</title>
+<title>09 Componentes y Clases - React Desde Cero</title>
 
 <script src="https://unpkg.com/react@16.4.0/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@16.4.0/umd/react-dom.development.js"></script>
@@ -8,53 +8,64 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <script src="https://unpkg.com/create-react-class@15.6.3/create-react-class.js">
-// React.createClass was removed from React 16 and is now its own package
+// React.createClass fue eliminado de la versión 16 de React
+// y por eso debemos cargar su librería de forma independiente
 </script>
 
 <div id="app"></div>
 
 <script type="text/babel">
-// Often a component needs to maintain some internal state
-// for example if there is an interaction involved
-// in this case a component function is not sufficient
-// the component function can only have properties and no state
-// we need a component class with a render function
+// Frecuentemente un componente necesita mantener un estado `state` interno
+// por ejemplo si hay alguna interacción envuelta.
+// Los componentes de tipo función, solo pueden mantener propiedades y no ningún estado interno.
+// En caso de que un componente tipo función no sea suficiente
+// entonces necesitaremos un componente de tipo Clase con una función render
 var MyComponent = createReactClass({
 
-  // used for type-checking of the properties
-  // same as with the component function
+  // del mismo modo que en los componentes de tipo función,
+  // usamos propTypes para validar el tipo de las propiedades.
   propTypes: {
     color: PropTypes.string,
   },
 
-  // this method sets default values for missing properties
-  // it will be called by React
-  // before the components gets mounted into the DOM
+  // Este método asigna el valor por defecto de las propiedades que faltan.
+  // Este método será invocado por React antes de que el componente sea montado en el DOM
+
   getDefaultProps: function() {
     return {color: "green"}
   },
 
-  // this method sets the initial state for the component
+  // Este método asigna el estado inicial del componente
   // it will be called by React
-  // before the components gets mounted into the DOM
-  // if this method is missing, this.state will be undefined
+  // será llamado por React antes de que ningún componente sea montado en el DOM
+  // si no es decalarado este método, entonces `this.state` será undefined
   getInitialState: function() {
-    // The state can be any JavaScript value, often it is an object
+    // El estado puede ser cualquier valor de JavaScript,
+    // pero normalmente es un objecto
     return {times: 0}
   },
 
-  // this method handles all the clicks on the <span> element
+  // maneja todos los clicks sobre el elemento span
   handleClick: function() {
     // setState() can be called with an object that contains the new state
+    // setState() puede ser llamado con un objeto,
+    // el cual será el nuevo valor del estado
     // normally this triggers a call of render(), but React can batch multiple
-    // calls and defer the render() call (make the call asynchronous)
-    // To prevent this, setState can take a callback instead
+    // normalmente eso desencadena la llamada a render,
+    // pero React puede esperar a acumular varios cambios antes de renderizar
+    // lo que hace que la llamada a Render sea asíncrona
+    // Por este motivo, setState puede recibir una función callback
 
     // This can lead to unexpected behaviour, if we rely on this.state or
+    // Esto puede conducir a un comportamiento extraño, si confiamos solamente
+    // en this.state o this.props para nuestros cálculos
     // this.props for our calculations
+    // this.setState({times: this.state.times + 1})
     // this.setState({times: this.state.times + 1})
 
     // The callback version doesn't have this problem
+    // The callback version doesn't have this problem
+    // The callback gets the right state and props at time of the update
     // The callback gets the right state and props at time of the update
     this.setState(function(prevState, props) {
       return {times: prevState.times + 1}
@@ -63,17 +74,26 @@ var MyComponent = createReactClass({
   },
 
   // this method will be called by React
+  // this method will be called by React
+  // after the component got mounted into the DOM
   // after the component got mounted into the DOM
   // also every time this.setState() was called
+  // also every time this.setState() was called
   // it's like the component function from before
+  // it's like the component function from before
+  // but without a props argument
   // but without a props argument
   render: function() {
 
     // using the prop given by the creator of this component
+    // using the prop given by the creator of this component
+    // properties are now in this.props instead of the props argument
     // properties are now in this.props instead of the props argument
     var style = {color: this.props.color}
 
     // returning an element with a click-handler and the props and
+    // returning an element with a click-handler and the props and
+    // state values. state is stored in this.state
     // state values. state is stored in this.state
     return (
       <span onClick={this.handleClick} style={style}>
@@ -86,8 +106,12 @@ var MyComponent = createReactClass({
 })
 
 // creating some instances of the interactive stateful component class
+// creating some instances of the interactive stateful component class
+// one with default color
 // one with default color
 // Everything works exactly like with the simpler component functions
+// Everything works exactly like with the simpler component functions
+// The interface has not changed for the user of this component
 // The interface has not changed for the user of this component
 var reactElement =
   <div>
