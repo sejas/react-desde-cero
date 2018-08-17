@@ -1,6 +1,6 @@
 <!doctype html>
 
-<title>10 Example App - React From Zero</title>
+<title>9 Ejemplo de App - React desde Cero</title>
 
 <script src="https://unpkg.com/react@16.4.0/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@16.4.0/umd/react-dom.development.js"></script>
@@ -10,25 +10,25 @@
 <div id="app"></div>
 
 <script type="text/babel">
-// An example of a simple React app
-// It uses simple component functions for its stateless components
-// and a complex component class to handle the interactions
+// Un ejemplo de una simple aplicación React
+// Utiliza una función componente para sus componentes sin estado
+// y una clase componente para manejar las interacciones
 
-// First we have the Task and TaskList
-// They get all their data/state through their properties
+// Primero tenemos un Task y un TaskList
+// Ambos reciben sus datos/estado a través de propiedades
 // <TaskList>
-//   <Task text="Do something"/>
-//   <Task text="Do nothing"/>
+//   <Task text="Hacer algo"/>
+//   <Task text="Hacer nada"/>
 // </TaskList>
 
-// Task needs a text property
+// Task necesita una propiedad text
 function Task(props) {
   return <li>{props.text}</li>
 }
 
-// TaskList needs an array of Task in its children property
+// TaskList necesita un array de Task en su propiedad children
 function TaskList(props) {
-  // Print the first element bold
+  // Imprime el primer elemento en negrita
   return (
     <ul>
       <b key={0}>{props.children[0]}</b>
@@ -37,31 +37,31 @@ function TaskList(props) {
   )
 }
 
-// This component handles the input
-// It needs to be a class, because the <input> element is stateful
+// Este componente maneja el input
+// Necesita ser un class, porque el elemento <input> contiene estado
 var TaskInput = createReactClass({
 
   getInitialState: function() {
     return {value: ""}
   },
 
-  // gets called when someone types into the <input> element
+  // Es llamado cuando alguien escribe en el elemento <input>
   handleChange: function(e) {
     this.setState({value: e.target.value})
   },
 
-  // gets called when someone clicks the <button> element
+  // Es llamado cuando alguien oprime el elemento <button>
   handleAdd: function(e) {
     if (!this.state.value) return
 
-    // call the function that was added into its onAdd property
+    // Llama a la función que fue asignada a la propiedad onAdd
     this.props.onAdd(this.state.value)
 
-    // clear the state so the input is empty again after an add
+    // Limpia el estado y así el input queda vacío luego de añadir
     this.setState({value: ""})
   },
 
-  // renders the elements every time someone types or adds
+  // Hace un render de los elementos cada vez que alguien escribe o añade
   render: function() {
     return (
       <div>
@@ -79,30 +79,30 @@ var TaskInput = createReactClass({
 
 })
 
-// The app keeps track of the current tasks in its state
+// La app hace un seguimiento de las tareas actuales y sus estados
 var TodoApp = createReactClass({
 
   getInitialState: function() {
     return {tasks: []}
   },
 
-  // this callback will be inserted into the onAdd property of the <TaskInput> component
+  // Este callback será asignado a la propiedad onAdd del componente <TaskInput>
   handleAdd: function(task) {
-    // adding a new task
+    // Añadiendo una neva tarea
     var tasks = [task].concat(this.state.tasks)
 
-    // this forces the <TodoApp> component to render
+    // Esto fuerza al componente <TodoApp> a hacer un render
     this.setState({tasks: tasks})
   },
 
   render: function() {
-    // create the list of <Task> components from the tasks array in the state
+    // Crea una lista de componentes <Task> a partir del array de tareas en el estado
     var taskElements = this.state.tasks.map(function(t, i) {
       return <Task key={i} text={t}/>
     })
 
-    // some simple styling
-    // and adding the add handler to the <TaskInput> component
+    // Algunos estilos simples
+    // y asigna la función de añadir al componente <TaskComponent>
     return (
       <div style={{width: 300, margin: "auto"}}>
 
@@ -120,7 +120,7 @@ var TodoApp = createReactClass({
 
 var renderTarget = document.getElementById("app")
 
-// we can use components directly
+// Podemos utilizar componentes de forma directa
 ReactDOM.render(<TodoApp/>, renderTarget)
 
 </script>
