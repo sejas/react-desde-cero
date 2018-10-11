@@ -36,6 +36,12 @@ var planets = ["Tierra", "Marte", "Venus"]
 // un `key` único.
 // Aquí vemos el ejemplo del map, y como convierte cada planeta en un
 // componente "diferente".
+// [
+//  <MyComponent className="myClass" customData={"earth"} key={0}/>,
+//  <MyComponent className="myClass" customData={"mars"} key={1}/>,
+//  <MyComponent className="myClass" customData={"venus"} key={2}/>
+// ]
+
 var elements = planets.map(function(planet, index) {
   return <MyComponent className="myClass" customData={planet} key={index}/>
 })

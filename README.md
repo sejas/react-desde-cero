@@ -11,6 +11,8 @@ Si quieres ejecutar los ejemplos con [create-react-app](https://github.com/faceb
 
 ## Traducciones
 
+- [![Spain](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Español / Spanish**](https://github.com/sejas/react-desde-cero)
+
 - [![inglés](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/England.png) **Inglés / English**](https://github.com/kay-is/react-from-zero)
 
 - [![china](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **中文 / Chinese**](https://github.com/chinanf-boy/react-from-zero)
