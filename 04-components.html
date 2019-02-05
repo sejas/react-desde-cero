@@ -1,6 +1,6 @@
 <!doctype html>
 
-<title>04 Componentes - React Desdce Cero</title>
+<title>04 Componentes - React Desde Cero</title>
 
 <script src="https://unpkg.com/react@16.4.0/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@16.4.0/umd/react-dom.development.js"></script>
@@ -9,7 +9,7 @@
 <div id="app"></div>
 
 <script type="text/babel">
-// El punto disruptor de React is su sistema de componentes
+// El punto disruptor de React es su sistema de componentes
 // Los componentes encapsulan elementos y sus comportamientos
 // Puedes verlos como una mezcla de Vista y Controlador del patrón MVC.
 
@@ -22,10 +22,10 @@ var reactElement =
     <h2>{data}</h2>
   </div>
 
-// Aquí encapsulamos a los elementos anterioes en una función componente
+// Aquí encapsulamos a los elementos anteriores en una función componente
 // They have to start with a capital letter and
-// Deben empezar por una letra Mayúsculas
-// y devuelve UN único elemento raiz con o sin elementos anidados (antes de React 16)
+// Deben empezar por una letra Mayúscula
+// y devuelve UN único elemento raíz con o sin elementos anidados (antes de React 16)
 // en este ejemplo, el componente Raíz es `div`.
 function MyComponent() {
   var data = "world"
@@ -39,7 +39,7 @@ function MyComponent() {
 
 // Desde la versión 16.0.0 de React,
 // los componentes también pueden devolver un array de elementos.
-// Al hacer esto, no es necesario un elmento raíz, y tampoco será creado automáticamente.
+// Al hacer esto, no es necesario un elemento raíz, y tampoco será creado automáticamente.
 // Hay que tener cuidado y no podemos olvidar incluir la prop `key`
 // como identificador único tampoco podemos olvidarnos de la coma
 // (Veremos más en la siguiente lección)
@@ -52,7 +52,7 @@ function MyComponent() {
 }
 
 // Desde la versión 16.2.0 de React, podemos usar componentes especiales llamados fragments
-// los utilizaremos como componentes raíz que no generan ningún elemento en el rederizado
+// los utilizaremos como componentes raíz que no generan ningún elemento en el renderizado
 // funciona del mismo modo que si devolviéramos un array,
 // pero eliminan la necesidad de incluir `keys` para cada elemento hijo
 // tampoco necesitamos el uso de comas.
