@@ -81,6 +81,7 @@ Si quieres ejecutar los ejemplos con [create-react-app](https://github.com/faceb
 ## Colaboradores
 [![](https://avatars0.githubusercontent.com/u/6407677?s=60&v=4)](https://github.com/kay-is)
 [![](https://avatars2.githubusercontent.com/u/779993?s=60&v=4)](https://github.es)
+[![](https://avatars2.githubusercontent.com/u/32717?s=60&v=4)](https://github.com/kant)
 [![](https://avatars3.githubusercontent.com/u/4408379?s=60&v=4)](https://github.com/lex111)
 [![](https://avatars2.githubusercontent.com/u/9661806?s=60&v=4)](https://github.com/nem035)
 [![](https://avatars2.githubusercontent.com/u/468153?s=60&v=4)](https://github.com/jordanbtucker)
