@@ -30,7 +30,7 @@ var props = {
 reactElement = <MyComponent {...props}/>
 
 // Esto permite a los componentes trabajar de forma dinámica
-var planets = ["Tierra", "Marte", "Venus"]
+var planetas = ["Tierra", "Marte", "Venus"]
 
 // Si cada array es utilizado como un "nodo hijo", cada hijo necesita
 // un `key` único.
@@ -42,8 +42,8 @@ var planets = ["Tierra", "Marte", "Venus"]
 //  <MyComponent className="myClass" customData={"Venus"} key={2}/>
 // ]
 
-var elements = planets.map(function(planet, index) {
-  return <MyComponent className="myClass" customData={planet} key={index}/>
+var elementos = planetas.map(function(planeta, index) {
+  return <MyComponent className="myClass" customData={planeta} key={index}/>
 })
 // El map devolvería un array de componentes:
 // [
@@ -52,7 +52,7 @@ var elements = planets.map(function(planet, index) {
 //  <MyComponent className="myClass" customData={"Venus"} key={2}/>
 // ]
 
-reactElement = <div>{elements}</div>
+reactElement = <div>{elementos}</div>
 
 var renderTarget = document.getElementById("app")
 
