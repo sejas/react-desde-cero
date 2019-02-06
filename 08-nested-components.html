@@ -25,7 +25,7 @@ function List(props) {
   return <ul>{props.children}</ul>
 }
 
-// Si <List /> is invocado sin la propiedad children, entonces asigna
+// Si <List /> es invocado sin la propiedad children, entonces asigna
 // por defecto el elemento <Item> que vemos a continuación.
 List.defaultProps = {
   children: <Item>Empty</Item>
