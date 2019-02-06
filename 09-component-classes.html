@@ -36,27 +36,23 @@ var MyComponent = createReactClass({
   },
 
   // Este método asigna el estado inicial del componente
-  // it will be called by React
   // será llamado por React antes de que ningún componente sea montado en el DOM
-  // si no es decalarado este método, entonces `this.state` será undefined
+  // si no es declarado este método, entonces `this.state` será undefined
   getInitialState: function() {
     // El estado puede ser cualquier valor de JavaScript,
     // pero normalmente es un objecto
     return {times: 0}
   },
 
-  // maneja todos los clicks sobre el elemento span
+  // maneja todos los clics sobre el elemento span
   handleClick: function() {
-    // setState() can be called with an object that contains the new state
     // setState() puede ser llamado con un objeto,
     // el cual será el nuevo valor del estado
-    // normally this triggers a call of render(), but React can batch multiple
     // normalmente eso desencadena la llamada a render,
     // pero React puede esperar a acumular varios cambios antes de renderizar
     // lo que hace que la llamada a Render sea asíncrona
     // Por este motivo, setState puede recibir una función callback
 
-    // This can lead to unexpected behaviour, if we rely on this.state or
     // Esto puede conducir a un comportamiento extraño, si confiamos solamente
     // en this.state o this.props para nuestros cálculos
     // this.setState({times: this.state.times + 1})
@@ -95,7 +91,7 @@ var MyComponent = createReactClass({
 
 })
 
-// creamos algunas instancias de el componente creado basado en clases (class)
+// creamos algunas instancias del componente creado basado en clases (class)
 // uno con el color por defecto
 // Everything works exactly like with the simpler component functions
 // Todo funciona exactamente igual que en el ejemeplo con los componentes de funciones.
