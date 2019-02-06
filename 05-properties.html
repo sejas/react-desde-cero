@@ -26,7 +26,7 @@ var props = {
   className: "abc",
   customData: "world",
 }
-// y se pueden deconstruor con el operador `...`
+// y se pueden deconstruir con el operador `...`
 reactElement = <MyComponent {...props}/>
 
 // Esto permite a los componentes trabajar de forma dinámica
@@ -37,9 +37,9 @@ var planets = ["Tierra", "Marte", "Venus"]
 // Aquí vemos el ejemplo del map, y como convierte cada planeta en un
 // componente "diferente".
 // [
-//  <MyComponent className="myClass" customData={"earth"} key={0}/>,
-//  <MyComponent className="myClass" customData={"mars"} key={1}/>,
-//  <MyComponent className="myClass" customData={"venus"} key={2}/>
+//  <MyComponent className="myClass" customData={"Tierra"} key={0}/>,
+//  <MyComponent className="myClass" customData={"Marte"} key={1}/>,
+//  <MyComponent className="myClass" customData={"Venus"} key={2}/>
 // ]
 
 var elements = planets.map(function(planet, index) {
