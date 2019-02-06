@@ -51,7 +51,7 @@ var NumberInput = createReactClass({
 
     var newNumber = e.target.value
 
-    // filtro para los cambios vaciós
+    // filtro para los cambios vacíos
     if (newNumber.length < 1 || newNumber === this.state.value) return
 
     this.setState({value: newNumber})
