@@ -15,8 +15,8 @@
   var magicValue = (Symbol && Symbol.for("react.element")) || 0xeac7
 
   // React utiliza internamente los elementos en el Virtual DOM (VDOM), los cuales pasan al DOM real a la hora de renderizar.
-  // Un elemento del VDOM puede sstar definido como un objeto literal simple.
-  // Normalmente tu usarias React.createElement() para crear un elmento.
+  // Un elemento del VDOM puede estar definido como un objeto literal simple.
+  // Normalmente usarías React.createElement() para crear un elemento.
   // Así es como se vería el valor retornado por la llamada a React.createElement()
   var reactElement = {
 
@@ -43,7 +43,7 @@
       // una clase CSS
       className: "abc",
 
-      // los estilos pueden ser pasadas como objetos
+      // los estilos pueden ser pasados como objetos
       // React utiliza camelCase en vez de dashed-case (igual que hace CSS/D3)
       style: {
         textAlign: "center",
